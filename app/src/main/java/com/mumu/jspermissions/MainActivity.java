@@ -27,6 +27,7 @@ import permissions.dispatcher.RuntimePermissions;
  * @author : zlf
  * date   : 2019/1/22
  * blog   :https://www.jianshu.com/u/281e9668a5a6
+ * 1，在需要动态申请权限的类上添加 @RuntimePermissions 的注解
  */
 @RuntimePermissions
 public class MainActivity extends AppCompatActivity {
@@ -80,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 拨打电话需要CALL_PHONE权限，在对应的方法是标明
+     * 2，拨打电话需要CALL_PHONE权限，在对应的方法是标明
      */
     @NeedsPermission(Manifest.permission.CALL_PHONE)
     void callPhone() {
@@ -92,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 对需要该权限的解释
+     *,3，对需要该权限的解释
      */
     @OnShowRationale(Manifest.permission.CALL_PHONE)
     void showWhy(final PermissionRequest request) {
@@ -119,7 +120,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 当用户拒绝获取权限的提示
+     *,4，当用户拒绝获取权限的提示
      */
     @OnPermissionDenied(Manifest.permission.CALL_PHONE)
     void showDenied() {
@@ -127,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 当用户勾选不再提示并且拒绝的时候调用的方法
+     *,5，当用户勾选不再提示并且拒绝的时候调用的方法
      */
     @OnNeverAskAgain(Manifest.permission.CALL_PHONE)
     void showNeverAskAgain() {
@@ -157,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * 权限回调，调用PermissionsDispatcher的回调方法
+     *,6，权限回调，调用PermissionsDispatcher的回调方法
      */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
